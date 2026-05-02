@@ -6,6 +6,22 @@
   <title>MF Trámites Vehiculares · Mandatario del Automotor · DNRPA</title>
   <meta name="description" content="Mandatario del Automotor habilitado por la DNRPA. Transferencias, altas, bajas, radicaciones, prendas e informes de dominio en Tres de Febrero, Buenos Aires.">
 
+  <!-- SEO & Social -->
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="trámites vehiculares, mandatario automotor, DNRPA, transferencia vehículo, Tres de Febrero, Buenos Aires, alta vehículo, informe dominio">
+  <link rel="canonical" href="https://joelppraderio2023.github.io/mf-tramites-vehiculares/">
+
+  <!-- Open Graph (WhatsApp, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MF Trámites Vehiculares · Mandatario DNRPA">
+  <meta property="og:description" content="Gestionamos tus trámites vehiculares en Tres de Febrero. Transferencias, altas, bajas, prendas e informes de dominio. Mandatario habilitado DNRPA.">
+  <meta property="og:image" content="https://joelppraderio2023.github.io/mf-tramites-vehiculares/assets/profile.jpg">
+  <meta property="og:url" content="https://joelppraderio2023.github.io/mf-tramites-vehiculares/">
+  <meta property="og:locale" content="es_AR">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230b1a2e'/><text y='72' x='50' text-anchor='middle' font-size='52' font-family='serif' fill='%23c9a84c' font-weight='bold'>MF</text></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -810,7 +826,7 @@
       font-size: 0.85rem;
       font-weight: 500;
       box-shadow: 0 4px 24px rgba(37,211,102,0.4);
-      transition: transform 0.25s, box-shadow 0.25s, padding 0.35s;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s, padding 0.35s;
       cursor: pointer;
       overflow: hidden;
     }
@@ -901,7 +917,7 @@
         </h1>
         <p class="hero-subtitle">Gestión Profesional del Automotor</p>
         <p class="hero-bio">
-          Gestionamos todos tus trámites vehiculares ante el Registro del Automotor de manera rápida, segura y sin complicaciones. Somos mandatarios habilitados por la DNRPA con presencia en Tres de Febrero, Buenos Aires.
+          Mandatario habilitado por la DNRPA. Gestionamos transferencias, altas, bajas, radicaciones, prendas e informes de dominio de forma rápida, segura y sin complicaciones. Consultá sin cargo.
         </p>
         <div class="hero-location">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -924,7 +940,7 @@
         <div class="profile-frame">
           <div class="profile-ring"></div>
           <div class="profile-ring-mask"></div>
-          <img class="profile-photo" src="assets/profile.jpg" alt="MF Trámites Vehiculares" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'><rect fill=\'%231e3a5f\' width=\'200\' height=\'200\'/><text x=\'50%25\' y=\'50%25\' fill=\'%23c9a84c\' font-size=\'48\' text-anchor=\'middle\' dominant-baseline=\'middle\' font-family=\'serif\'>MF</text></svg>'">
+          <img class="profile-photo" src="assets/profile.jpg" alt="MF Trámites Vehiculares" loading="eager" fetchpriority="high" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'><rect fill=\'%231e3a5f\' width=\'200\' height=\'200\'/><text x=\'50%25\' y=\'50%25\' fill=\'%23c9a84c\' font-size=\'48\' text-anchor=\'middle\' dominant-baseline=\'middle\' font-family=\'serif\'>MF</text></svg>'">
           <div class="profile-verified">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
@@ -1338,8 +1354,19 @@
 
     // Hero text stagger
     document.querySelectorAll('.hero-text > *').forEach((el, i) => {
-      el.style.animation = `fadeUp 0.8s ${i * 0.1}s both`;
+      el.style.opacity = '0';
+      el.style.animation = `fadeUp 0.8s ${0.1 + i * 0.12}s both`;
     });
+
+    // WhatsApp float: hide on scroll up, show on scroll down
+    let lastScroll = 0;
+    const waFloat = document.querySelector('.wa-float');
+    window.addEventListener('scroll', () => {
+      const cur = window.scrollY;
+      waFloat.style.transform = cur > lastScroll && cur > 300
+        ? 'translateY(100px)' : '';
+      lastScroll = cur;
+    }, { passive: true });
   </script>
 </body>
 </html>
