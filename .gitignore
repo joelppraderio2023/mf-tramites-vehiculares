@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+*.mjs
+package.json
+scrape_instagram.mjs
+download_assets.mjs
+instagram_profile.png
